@@ -35,51 +35,17 @@
                     </tr>
                 </tfoot>
                 <tbody >
+                    @foreach ($genres as $genre)
                     <tr>
-                        <td>1</td>
-                        <td>Action</td>
-                        <td>Genre utama dalam film yang satu atau beberapa tokohnya terlibat dalam tantangan yang memerlukan kekuatan fisik ataupun kemampuan khusus.</td>
+                        <td>{{$genre['no']}}</td>
+                        <td>{{$genre['genre']}}</td>
+                        <td>{{$genre['deskripsi']}}</td>
                         <td>
                             <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
+                            <a href="" class="btn btn-sm btn-danger"onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Romance</td>
-                        <td>Film romansa adalah kisah cinta yang direkam dalam media visual untuk disiarkan di bioskop dan televisi yang berfokus pada gairah, emosi, dan keterlibatan kasih sayang.</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Comedy</td>
-                        <td>Genre film di mana penekanan utama adalah pada kelucuan.</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Horor</td>
-                        <td>Genre film yang berusaha untuk memancing emosi berupa ketakutan atau rasa jijik dari penontonnya.</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Drama</td>
-                        <td>Salah satu jenis dari beragam film yang memiliki poin inti dalam penggarapannya tergantung pada pengembangan esensi unsur cerita dan konflik mendalam pada penekanan karakter realistis yang sering pula mengusung tema emosional.</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
+                    @endforeach
 
                 </tbody>
             </table>
