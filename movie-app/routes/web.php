@@ -20,16 +20,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-
-
-Route::get('/genres', function () {
-    return view('genres/index');
-});
-
-Route::get('/reviews', function () {
-    return view('reviews/index');
-});
-
 Route::get('/users', function () {
     return view('users/index');
 });
@@ -38,6 +28,7 @@ Route::get('/movies',[MovieController::class, 'index']);
 
 Route::get('/genres',[GenreController::class, 'index']);
 
-Route::get('/movies',[ReviewController::class, 'index']);
+Route::get('/reviews',[ReviewController::class, 'index']);
 
 
+    
