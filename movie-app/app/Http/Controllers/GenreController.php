@@ -23,7 +23,8 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+        $genres = Genre::all();
+        return view('genres.create', compact('genres'));
     }
 
     /**
@@ -31,7 +32,12 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'nama' => 'required',
+            'deskripsi' => 'required',
+        ]);
+        Genre::create($validateData);
+        return redirect('/genres')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -47,7 +53,9 @@ class GenreController extends Controller
      */
     public function edit(Genre $genre)
     {
-        //
+        $genres = Genre::all();
+
+        return view('genres.edit', compact('genre', 'genres'));
     }
 
     /**
@@ -55,7 +63,14 @@ class GenreController extends Controller
      */
     public function update(Request $request, Genre $genre)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
+        $genre->update($validatedData);
+
+        return redirect('/genres')->with('success', 'Movie updated successfully!');
     }
 
     /**
@@ -63,6 +78,7 @@ class GenreController extends Controller
      */
     public function destroy(Genre $genre)
     {
-        //
+        $genre->delete();
+        return redirect('/genres')->with('success', 'Data berhasil dihapus');
     }
 }

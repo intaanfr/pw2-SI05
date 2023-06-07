@@ -9,8 +9,7 @@ class Genre extends Model
 {
     use HasFactory;
 
-public function getAllGenres() 
- {
-    return $this->belongsTo(Genre::class);
- }
+    protected $fillable = ['nama', 'deskripsi'];
+
+
 }

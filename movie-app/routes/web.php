@@ -3,6 +3,7 @@
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,19 +17,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/users', function () {
     return view('users/index');
 });
 
-Route::get('/movies',[MovieController::class, 'index']); 
-
-Route::get('/genres',[GenreController::class, 'index']);
-
-Route::get('/reviews',[ReviewController::class, 'index']);
 
 
-    
+
+Route::resource('/movies', MovieController::class);
+Route::get('/movies/{movie}/edit', [MovieController::class, 'edit']);
+Route::put('/movies/{movie}', [MovieController::class, 'update']);
+
+Route::resource('/genres', GenreController::class);
+Route::get('/reviews{genre}/edit',[ReviewController::class, 'edit']);
+
+Route::resource('/reviews', ReviewController::class);
+Route::get('/reviews/{review}/edit', [ReviewpController::class, 'edit']);
+Route::put('/reviews/{review}', [ReviewController::class, 'update']);
